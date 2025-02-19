@@ -12,4 +12,7 @@ class UserController extends Controller
         echo "hola";
     }
 
+    public function doRegister(Request $request) {
+        echo "hola";
+    }
 }
