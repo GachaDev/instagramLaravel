@@ -4,14 +4,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->middleware('auth')->name('home');
 
 Route::get('/login', function () {
     return view('login');
-})->name('showLogin');
+})->middleware('guest')->name('login');
 
 Route::get("/register", function () {
     return view('register');
-})->name('showRegister');
+})->middleware('guest')->name('showRegister');
 
 Route::prefix('users')->group(base_path('routes/users/users.php'));

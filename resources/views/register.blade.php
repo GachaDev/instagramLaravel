@@ -25,7 +25,7 @@
                 </form>
             </article>
             <article class="border border-zinc-700 p-6 px-12 w-full flex justify-center">
-                <p class="text-white text-center">¿Tienes una cuenta? <a class="text-blue-600" href="{{route('showLogin')}}">Entrar</a></p>
+                <p class="text-white text-center">¿Tienes una cuenta? <a class="text-blue-600" href="{{route('login')}}">Entrar</a></p>
             </article>
         </section>
     </main>
