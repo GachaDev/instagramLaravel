@@ -81,6 +81,6 @@ class UserController extends Controller
 
         $user->save();
 
-        return view('login');
+        return redirect()->to('/login');
     }
 }
