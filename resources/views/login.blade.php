@@ -15,6 +15,7 @@
                     @csrf
                     <input class="bg-zinc-800 text-white border border-zinc-700 rounded-md p-2 w-full outline-none" type="text" name="email" placeholder="Correo electrónico">
                     <input class="bg-zinc-800 text-white border border-zinc-700 rounded-md p-2 w-full outline-none" type="password" name="password" placeholder="Contraseña">
+                    @error('email') <small class="text-red-500">{{ $message }}</small> @enderror
                     <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-md p-2 w-full">Entrar</button>
                 </form>
             </article>

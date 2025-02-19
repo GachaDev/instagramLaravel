@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -13,7 +14,32 @@ class UserController extends Controller
     //
 
     public function doLogin(Request $request) {
-        echo "hola";
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email:rfc,dns',
+            'password' => 'required|string'
+        ], [
+            "email.required" => 'Por favor, ingrese el email',
+            "password.required" => 'Por favor, ingrese la contraseña'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended('');
+        }
+ 
+        return redirect()->back()->withErrors([
+            'email' => 'Email o contraseña incorrectos.',
+        ])->onlyInput('email');
     }
 
     public function doRegister(Request $request) {
