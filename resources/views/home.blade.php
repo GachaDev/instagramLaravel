@@ -19,7 +19,7 @@
                 </form>
             </article>
             <article class="border border-zinc-700 p-6 px-12 w-full flex justify-center">
-                <p class="text-white">¿No tienes una cuenta? <a class="text-blue-600" href="{{route('showRegister')}}">Regístrate</a></p>
+                <p class="text-white text-center">¿No tienes una cuenta? <a class="text-blue-600" href="{{route('showRegister')}}">Regístrate</a></p>
             </article>
         </section>
     </main>
