@@ -8,7 +8,10 @@
 </head>
 <body>
     <main class="min-h-screen flex justify-center items-center bg-zinc-950">
-        <section class="flex flex-col items-center gap-4 w-1/2 max-md:w-2/3">
+        <section class="max-lg:hidden">
+            <img src="{{asset('home-phones.png')}}" alt="Logo">
+        </section>
+        <section class="flex flex-col items-center gap-4 w-2/6 max-lg:w-2/3">
             <article class="border border-zinc-700 py-6 px-12 w-full">
                 <h1 class="text-4xl text-center font-bold text-white">Instagram</h1>
                 <form class="flex flex-col mt-8 gap-4" action="{{route('user.doLogin')}}" method="POST">
