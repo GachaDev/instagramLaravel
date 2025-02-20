@@ -25,18 +25,18 @@ class UserController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
- 
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+
             return redirect()->intended('');
         }
- 
+
         return redirect()->back()->withErrors([
             'email' => 'Email o contraseña incorrectos.',
         ])->onlyInput('email');
@@ -82,5 +82,15 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->to('/login');
+    }
+
+    public function doLogout(Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

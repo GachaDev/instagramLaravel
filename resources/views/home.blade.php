@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instagram</title>
+    @vite(['resources/css/app.css'])
+</head>
+<body>
+    <main class="min-h-screen flex justify-between bg-zinc-950 p-6">
+        <section>
+            <h1 class="text-xl text-center font-semibold text-white">Instagram</h1>
+        </section>
+        <section>
+            <h1 class="text-white">Aqui van las imagenes</h1>
+        </section>
+        <section class="flex flex-col gap-6">
+            <div class="flex gap-4 justify-between items-center">
+                <div class="flex gap-2 items-center">
+                    <img class="w-12 h-12 rounded-full" src="{{asset('default-avatar.webp')}}" alt="User">
+                    <h1 class="text-white">{{ auth()->user()->name }}</h1>
+                </div>
+                <form action="{{route('user.doLogout')}}" method="POST">
+                    @csrf
+                    <button type="submit" class="text-red-500 rounded-md p-2 w-full hover:text-red-600">Cerrar sesión</button>
+                </form>
+            </div>
+            <h1 class="text-gray-400">Sugerencias para ti</h1>
+        </section>
+    </main>
+</body>
+</html>
