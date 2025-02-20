@@ -9,7 +9,7 @@
 <body>
     <main class="min-h-screen flex justify-center items-center bg-zinc-950">
         <section class="max-lg:hidden">
-            <img src="{{asset('home-phones.png')}}" alt="Logo">
+            <img class="h-[35rem]" src="{{asset('home-phones.png')}}" alt="Logo">
         </section>
         <section class="flex flex-col items-center gap-4 w-2/6 max-lg:w-2/3">
             <article class="border border-zinc-700 py-6 px-12 w-full">
