@@ -30,7 +30,10 @@
                     </div>
                     <img class="w-full max-h-[585px] rounded-sm object-cover object-top" src={{asset($post->url_image)}} alt="Post">
                     <div class="flex gap-4 items-center">
-                        <x-bi-heart class="text-white h-6 w-6 cursor-pointer hover:text-gray-400"/>
+                        <form class="flex items-center" action="{{route('posts.like', $post->id)}}" method="POST">
+                            @csrf
+                            <button type="submit"><x-bi-heart class="text-white h-6 w-6 cursor-pointer hover:text-red-500"></x-bi-heart></button>
+                        </form>
                         <x-far-comment class="text-white h-6 w-6 cursor-pointer hover:text-gray-400"/>
                     </div>
                     <div>

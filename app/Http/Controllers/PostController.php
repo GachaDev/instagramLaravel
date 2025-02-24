@@ -58,4 +58,13 @@ class PostController extends Controller
 
         return redirect()->back();
     }
+
+    public function like($post) {
+        $postObj = Post::find($post);
+
+        $postObj->n_likes++;
+        $postObj->save();
+
+        return redirect()->back();
+    }
 }
