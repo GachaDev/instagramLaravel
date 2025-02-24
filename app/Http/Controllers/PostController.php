@@ -47,6 +47,7 @@ class PostController extends Controller
             'belongs_to' => auth()->id(),
         ]);
 
+        return redirect()->to('/');
     }
 
     public function destroy($post) {

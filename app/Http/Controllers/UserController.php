@@ -93,4 +93,17 @@ class UserController extends Controller
 
         return redirect('/login');
     }
+
+    public function destroyAccount(Request $request) {
+        $user = User::find(auth()->id());
+        $user->delete();
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->to('/login');
+    }
 }
