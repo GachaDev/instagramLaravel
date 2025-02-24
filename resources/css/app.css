@@ -8,3 +8,17 @@ body {
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 0px; /* Hace la barra invisible */
+    height: 0px; /* Para el scroll horizontal, si existe */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent; /* Hace el "pulgar" de la barra invisible */
+}
+
+.custom-scrollbar {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
