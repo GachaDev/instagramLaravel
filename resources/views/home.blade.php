@@ -9,13 +9,17 @@
 </head>
 <body>
     <main class="flex justify-between h-screen bg-zinc-950 p-6">
-        <section class="flex flex-col items-center gap-4">
-            <h1 class="text-xl text-center font-semibold text-white">Instagram</h1>
-            <a class="bg-blue-600 hover:bg-blue-700 text-white rounded-md p-2 w-full text-center" href="{{route('posts.create')}}">Crear post</a>
-            <form action="{{ route('user.destroyAccount') }}" method="post">
-                @csrf
-                <button class="bg-red-500 hover:bg-red-600 text-white rounded-md flex gap-2 p-2 w-full text-center" type="submit"><x-bi-trash3-fill class="text-white h-6 w-6"></x-bi-trash3-fill> Eliminar cuenta</button>
-            </form>
+        <section class="flex flex-col justify-between items-center gap-4">
+            <article class="flex items-center">
+                <h1 class="text-xl text-center font-semibold text-white">Instagram</h1>
+            </article>
+            <article class="flex flex-col gap-4 items-center">
+                <a class="text-white rounded-md flex gap-2 p-2 w-full text-center hover:text-gray-400 h-full" href="{{route('posts.create')}}"><x-bi-plus class="text-white h-6 w-6"> </x-bi-plus> Crear post</a>
+                <form action="{{ route('user.destroyAccount') }}" method="post">
+                    @csrf
+                    <button class="text-white rounded-md flex gap-2 p-2 w-full text-center hover:text-red-600" type="submit"><x-bi-trash3-fill class="text-white h-6 w-6"></x-bi-trash3-fill> Eliminar cuenta</button>
+                </form>
+            </article>
         </section>
         <section class="flex flex-col gap-4 overflow-y-scroll max-h-screen custom-scrollbar">
             @foreach($posts as $post)
@@ -62,7 +66,6 @@
                     <button type="submit" class="text-red-500 rounded-md p-2 w-full hover:text-red-600">Cerrar sesión</button>
                 </form>
             </div>
-            <h1 class="text-gray-400">Sugerencias para ti</h1>
         </section>
     </main>
 </body>
