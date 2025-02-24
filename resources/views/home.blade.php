@@ -15,10 +15,18 @@
         <section class="flex flex-col gap-4 overflow-y-scroll max-h-screen custom-scrollbar">
             @foreach($posts as $post)
                 <article class="flex flex-col gap-2 border-b border-zinc-800 pb-4">
-                    <div class="flex gap-2 items-center">
-                        <img class="w-12 h-12 rounded-full" src="{{asset('default-avatar.webp')}}" alt="User">
-                        <span class="text-white font-semibold">{{ $post->user->name }}</span>
-                        <span class="text-gray-400">• {{ $post->published_at->diffForHumans() }}</span>
+                    <div class="flex justify-between items-center">
+                        <div class="flex gap-2 items-center">
+                            <img class="w-12 h-12 rounded-full" src="{{asset('default-avatar.webp')}}" alt="User">
+                            <span class="text-white font-semibold">{{ $post->user->name }}</span>
+                            <span class="text-gray-400">• {{ $post->published_at->diffForHumans() }}</span>
+                        </div>
+                        @if (auth()->user()->id == $post->user->id)
+                            <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                                @csrf
+                                <button type="submit"><x-bi-trash3-fill class="text-red-500 hover:text-red-600 h-6 w-6"></x-bi-trash3-fill></button>
+                            </form>
+                        @endif
                     </div>
                     <img class="w-full max-h-[585px] rounded-sm object-cover object-top" src={{asset($post->url_image)}} alt="Post">
                     <div class="flex gap-4 items-center">
@@ -29,7 +37,7 @@
                         <span class="text-white">{{ $post->n_likes }} Me gusta</span>
                     </div>
                     <div>
-                        <p class="text-white"><span class="text-white font-semibold">{{ $post->user->name }}</span> {{ $post->description }}</p>
+                        <p class="text-white max-w-prose"><span class="text-white font-semibold">{{ $post->user->name }}</span> {{ $post->description }}</p>
                     </div>
                 </article>
             @endforeach

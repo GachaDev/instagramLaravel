@@ -48,4 +48,14 @@ class PostController extends Controller
         ]);
 
     }
+
+    public function destroy($post) {
+        $postObj = Post::find($post);
+
+        if ($postObj && $postObj->belongs_to == auth()->id()) {
+            $postObj->delete();
+        }
+
+        return redirect()->back();
+    }
 }
