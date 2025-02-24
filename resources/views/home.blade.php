@@ -17,8 +17,8 @@
                 <article class="flex flex-col gap-2 border-b border-zinc-800 pb-4">
                     <div class="flex gap-2 items-center">
                         <img class="w-12 h-12 rounded-full" src="{{asset('default-avatar.webp')}}" alt="User">
-                        <span class="text-white font-semibold">{{ $post->belongs_to }}</span>
-                        <span class="text-gray-400">• 13 h</span>
+                        <span class="text-white font-semibold">{{ $post->user->name }}</span>
+                        <span class="text-gray-400">• {{ $post->published_at->diffForHumans() }}</span>
                     </div>
                     <img class="w-full max-h-[585px] rounded-sm" src={{asset($post->url_image)}} alt="Post">
                     <div class="flex gap-4 items-center">

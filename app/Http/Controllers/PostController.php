@@ -18,7 +18,8 @@ class PostController extends Controller
 
     public function getHome()
     {
-        return view('home', ['posts' => Post::all()]);
+        $posts = Post::with('user')->orderBy('published_at', 'desc')->get();
+        return view('home', compact('posts'));
     }
 
     public function store(Request $request)
