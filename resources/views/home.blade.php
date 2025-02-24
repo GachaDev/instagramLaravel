@@ -29,7 +29,7 @@
                         <span class="text-white">{{ $post->n_likes }} Me gusta</span>
                     </div>
                     <div>
-                        <p class="text-white"><span class="text-white font-semibold">kingsleague</span> Cositas 💖</p>
+                        <p class="text-white"><span class="text-white font-semibold">{{ $post->user->name }}</span> {{ $post->description }}</p>
                     </div>
                 </article>
             @endforeach
