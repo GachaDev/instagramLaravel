@@ -39,8 +39,9 @@
                     <div>
                         <span class="text-white">{{ $post->n_likes }} Me gusta</span>
                     </div>
-                    <div>
+                    <div class="flex flex-col gap-2">
                         <p class="text-white max-w-prose"><span class="text-white font-semibold">{{ $post->user->name }}</span> {{ $post->description }}</p>
+                        <a class="text-gray-400 cursor-pointer">Ver los {{ $post->comments->count() }} comentarios</a>
                     </div>
                 </article>
             @endforeach
