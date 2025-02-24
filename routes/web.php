@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('auth')->name('home');
+Route::get('/', [PostController::class, 'getHome'])->middleware('auth')->name('home');
 
 Route::get('/login', function () {
     return view('login');
@@ -15,3 +14,4 @@ Route::get("/register", function () {
 })->middleware('guest')->name('showRegister');
 
 Route::prefix('users')->group(base_path('routes/users/users.php'));
+Route::prefix('posts')->group(base_path('routes/posts/posts.php'));
