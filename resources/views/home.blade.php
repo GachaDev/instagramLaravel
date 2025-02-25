@@ -43,14 +43,14 @@
                             @csrf
                             <button type="submit"><x-bi-heart class="text-white h-6 w-6 cursor-pointer hover:text-red-500"></x-bi-heart></button>
                         </form>
-                        <x-far-comment class="text-white h-6 w-6 cursor-pointer hover:text-gray-400"/>
+                        <a href="{{route('posts.get', $post->id)}}"><x-far-comment class="text-white h-6 w-6 cursor-pointer hover:text-gray-400"/></a>
                     </div>
                     <div>
                         <span class="text-white">{{ $post->n_likes }} Me gusta</span>
                     </div>
                     <div class="flex flex-col gap-2">
                         <p class="text-white max-w-prose"><span class="text-white font-semibold">{{ $post->user->name }}</span> {{ $post->description }}</p>
-                        <a class="text-gray-400 cursor-pointer">Ver los {{ $post->comments->count() }} comentarios</a>
+                        <a href="{{route('posts.get', $post->id)}}" class="text-gray-400 cursor-pointer">Ver los {{ $post->comments->count() }} comentarios</a>
                     </div>
                 </article>
             @endforeach

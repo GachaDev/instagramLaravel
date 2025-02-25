@@ -68,4 +68,15 @@ class PostController extends Controller
 
         return redirect()->back();
     }
+
+    public function getPost($postId)
+    {
+        $post = Post::with(['user', 'comments'])->find($postId);
+
+        if ($post) {
+            return view('post', compact('post'));
+        }
+
+        return redirect()->back();
+    }
 }
