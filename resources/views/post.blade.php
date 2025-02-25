@@ -12,9 +12,9 @@
         <section>
             <h1><a class="text-xl text-center font-semibold text-white" href="{{route('home')}}">Instagram</a></h1>
         </section>
-        <div class="w-1/2 h-full flex items-center border-r border-zinc-800">
-            <div class="border-r border-zinc-800 flex w-full">
-                <img class="w-full max-h-[585px] rounded-sm object-cover object-top" src={{asset($post->url_image)}} alt="Post">
+        <div class="w-1/2 h-full flex justify-end items-center border-r border-zinc-800">
+            <div class="border-r border-zinc-800 flex w-full justify-center">
+                <img class="w-fit max-h-[90vh] rounded-sm object-cover object-top" src={{asset($post->url_image)}} alt="Post">
             </div>
         </div>
         <div class="flex justify-between h-full flex-col">
