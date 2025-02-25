@@ -30,6 +30,6 @@ class Post extends Model
 
     public function comments(): HasMany
     {
-        return $this->hasMany(Comment::class, "post_id", "id");
+        return $this->hasMany(Comment::class, "post_id", "id")->orderBy('publish_at', 'asc');
     }
 }

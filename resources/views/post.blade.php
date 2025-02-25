@@ -77,6 +77,9 @@
                         <input type="text" name="comment" placeholder="Escribe tu comentario..." class="w-full text-white bg-transparent border-none outline-none">
                         <button type="submit" class="text-blue-500 cursor-pointer hover:text-blue-600">Publicar</button>
                     </form>
+                    @error('comment')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
         </div>
